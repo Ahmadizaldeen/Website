@@ -8,3 +8,28 @@
 </form>
 <span > Don't have an account? <a href = "signup.php">Sign up</a></span>
 
+<?php
+session_start(); // Data in session speichern
+require_once "tools/user_data_administration.php";
+$users_data = "data/users.txt";
+
+if (isset($_POST['submit'])){
+    $user_name = trim($_POST['user']);
+    $password = $_POST['password'];
+
+    if(user_exists($users_data,$user_name)){
+        $all_users = get_user($users_data, $user_name);
+        if(password_verify($password, $all_users[$user_name])){
+            $_SESSION['user']= $user_name;
+            header("Location: pages/home.php");
+            exit;
+        }
+        else{
+            echo "Password incorrect";
+        }
+    }
+    else {
+    echo "User not Found!";
+    }
+}
+?>
