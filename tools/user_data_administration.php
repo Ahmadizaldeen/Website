@@ -1,6 +1,9 @@
 <?php 
 $users_data = "data/users.txt";
 function get_user($users_data, $user_name){
+
+    if(!file_exists($users_data)) return false;
+    
     $unserialized_user = unserialize(file_get_contents($users_data));
     if(array_key_exists($user_name, $unserialized_user)){
        echo "user vorhanden, user nicht aktulsiert";
@@ -9,13 +12,11 @@ function get_user($users_data, $user_name){
 }
 
 function user_exists($users_data, $user_name){
+
+    if(!file_exists($users_data)) return false;
+
     $unserialized_user = unserialize(file_get_contents($users_data));
-    if(array_key_exists($user_name, $unserialized_user)){
-       return true;
-    }
-    else{
-        return false;
-    }
+    return array_key_exists($user_name, $unserialized_user);
 }
 
 function save_user($users_data, $user_data ){
