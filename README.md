@@ -10,16 +10,6 @@ Die Website wird schrittweise erweitert und dient als Experimentier- und Lernpla
 
 ---
 
-## 🎯 Ziele des Projekts
-
-* Umsetzung von PHP-Grundlagen in realen Anwendungsfällen
-* Trennung von Logik und Darstellung (Best Practices)
-* Arbeiten mit Formularen (GET/POST, Validierung)
-* Dynamische Inhalte generieren (z. B. Tabellen, Farben, Muster)
-* Vorbereitung auf größere Projekte (z. B. MVC-Struktur)
-
----
-
 ## 🛠️ Technologien
 
 * PHP (Core)
@@ -30,23 +20,31 @@ Die Website wird schrittweise erweitert und dient als Experimentier- und Lernpla
 
 ---
 
-## 📂 Projektstruktur (aktuell)
+## 📂 Projektstruktur
 
 ```
 /Website
-│── login.php
+│── login.php               # Einstiegspunkt – Login-Formular & Logik
+│── signup.php              # Registrierung – Formular & Logik
 │── /pages
-│── /assert
+│   ├── home.php
+│   ├── page1.php – page4.php
+│   ├── about.php
+│   ├── contact.php
+│   ├── agb.php
+│   └── imprint.php
 │── /include
+│   ├── navigation.php      # Wiederverwendbare Navigation
+│   └── footer_navi.php     # Wiederverwendbarer Footer
 │── /data
+│   └── users.txt           # Datei-basierte User-Speicherung (serialisiert)
+│── /tools
+│   ├── user_data_administration.php  # User CRUD-Funktionen
+│   ├── validation.php                # Regex-Validierung
+│   └── pages_template.php            # Vorlage für neue Seiten
 │── /css
 │── /js
-│── /tools
-│── /test
-
 ```
-
-*(Struktur wird im Verlauf erweitert)*
 
 ---
 
@@ -54,37 +52,39 @@ Die Website wird schrittweise erweitert und dient als Experimentier- und Lernpla
 
 1. Repository klonen:
 
-```
+```bash
 git clone https://github.com/Ahmadizaldeen/Website.git
-```
-
-2. In Projektordner wechseln:
-
-```
 cd Website
+git checkout feat_login
 ```
 
-3. Lokalen Server starten (z. B. XAMPP, Laragon oder PHP built-in server):
+2. Lokalen Server starten:
 
-```
+```bash
 php -S localhost:8000
 ```
 
-4. Im Browser öffnen:
+3. Im Browser öffnen:
 
 ```
-http://localhost:8000
+http://localhost:8000/login.php
 ```
 
 ---
 
-## 🧪 Features (aktuell / geplant)
+## 🧪 Features
 
-* [ ] Dynamische Farb-Generierung
-* [ ] Tabellen mit Mustern
-* [ ] Mehrere Tabellen gleichzeitig rendern
-* [ ] Formularverarbeitung mit Validierung
-* [ ] Benutzer-Login-System (Datei-basiert)
+* [x] Seitenstruktur mit wiederverwendbaren Includes (Navigation, Footer)
+* [x] Benutzer-Registrierung mit Formularvalidierung
+* [x] Passwort-Bestätigung bei Registrierung
+* [x] Eingabevalidierung mit Regex (Username & Passwort)
+* [x] Sichere Passwort-Speicherung mit `password_hash()`
+* [x] Datei-basierte User-Speicherung (`serialize` / `unserialize`)
+* [x] Login mit `password_verify()`
+* [x] Session-Management nach Login
+* [x] Weiterleitung nach Login & Registrierung
+* [ ] Logout-Funktion
+* [ ] Seitenschutz für eingeloggte User
 * [ ] Datenbankanbindung (MySQL)
 * [ ] MVC-Struktur
 
@@ -92,19 +92,25 @@ http://localhost:8000
 
 ## 📚 Lernfokus
 
-Dieses Projekt dient gezielt dazu, folgende Konzepte zu festigen:
+Bisher umgesetzte PHP-Konzepte:
 
-* Funktionen und Rückgabewerte in PHP
+* Funktionen, Parameter und Rückgabewerte
 * Arrays und Schleifen
-* Trennung von Logik und UI
-* Wiederverwendbarer Code
-* Debugging
+* Trennung von Logik und UI (PHP vor HTML)
+* Wiederverwendbarer Code mit `require_once`
+* Formulare mit GET/POST
+* Reguläre Ausdrücke (`preg_match`)
+* Passwort-Hashing und -Verifikation
+* Sessions (`session_start`, `$_SESSION`)
+* HTTP-Header und Weiterleitungen
+* Dateioperationen (`file_get_contents`, `file_put_contents`)
+* Debugging und Fehlerbehandlung
 
 ---
 
 ## 🚧 Status
 
-Projekt befindet sich aktuell im Aufbau und wird kontinuierlich erweitert.
+Branch `feat_login` – Login & Registrierungssystem funktionsfähig. Projekt wird kontinuierlich erweitert.
 
 ---
 
