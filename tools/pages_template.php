@@ -9,14 +9,18 @@
 	<script src = "js/script.js"></script>
 </head>
 <body>
-	
-	<header><h1>VorlTemplate</h1></header>
 
-	<nav></nav>
+	<header><h1>Template</h1></header>
+
+	<nav>
+		<?php require_once "../include/navigation.php"; ?>
+	</nav>
 
 	<main></main>
 	
-	<footer></footer>
+	<footer>
+		<?php require_once "../include/footer_navi.php"; ?>
+	</footer>
 	
 </body>
 </html>
