@@ -9,7 +9,7 @@ if (isset($_POST['submit'])){
 
     if(user_exists($users_data,$user_name)){
         $all_users = get_user($users_data, $user_name);
-        if(password_verify($password, $all_users[$user_name])){
+        if(password_verify($password, $all_users[$user_name]['password'])){// starte session wenn gehastes password und eingegebene Passwort gleich sind
             $_SESSION['user']= $user_name;
             header("Location: pages/home.php");// weiterleiten wenn login erfolgreich
             exit;
