@@ -23,7 +23,7 @@ function save_user($users_data, $user_data ){
     $password = $user_data['password']; // kommt gehasht an
 
     $existing = file_exists($users_data) ? unserialize(file_get_contents($users_data)) : [];
-    $existing = $user_data['password'];
+    $existing [$user_name]= $password; // neue User zum Array hinzufügen
 
     file_put_contents($users_data, serialize($existing));
     echo "user saved!";
