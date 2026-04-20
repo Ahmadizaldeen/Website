@@ -6,9 +6,9 @@ function get_user($users_data, $user_name){
 
     $unserialized_user = unserialize(file_get_contents($users_data));
     if(array_key_exists($user_name, $unserialized_user)){
-       echo "user vorhanden, user nicht aktulsiert";
+       return $unserialized_user[$user_name];
     }
-    return $unserialized_user;
+    return false; // User nicht gefunden
 }
 
 function user_exists($users_data, $user_name){
