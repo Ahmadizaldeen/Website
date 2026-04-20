@@ -1,24 +1,5 @@
-<form action="" method ="post">
-    <label>salutation :</label>
-	<input type="radio" id="mr" name="salutation" value="Mr">
-	<label for="mr">Mr</label>
-	<input type="radio" id="mrs" name="salutation" value="Mrs">
-	<label for="mrs">Mrs</label><br>
-
-    <label for = "firstname">First Name :</label>
-    <input type = "text" name = "firstname" id = "firstname"><br>
-    <label for = "lastname">Last Name :</label>
-    <input type = "text" name ="lastname" id = "lastname"><br>
-	<label for="user_name">user name : </label>
-	<input type= "text" name ="user_name" id ="user_name"><br>
-	<label for="password">password :</label>
-	<input type= "password" name ="password" id ="password">
-    <label for = "confirm_password">Confirm Password :</label>
-    <input type= "password" name ="confirm_password" id ="confirm_password"><br>
-    <button type = "submit" value ="signup" name = "submit" >Create Account</button>
-    
-</form>
 <?php
+session_start(); // für automatische Anmeldung nach dem signup
 $users_data = 'data/users.txt';
 if(isset($_POST['submit'])){
 	if(!empty($_POST['firstname'])&& !empty($_POST['lastname'])
@@ -55,6 +36,8 @@ if(isset($_POST['submit'])){
             }
             else {
                 save_user($users_data, $user_data);
+                header("Location: login.php"); // nach dem Speichern zu login
+                exit;
             }
 
         }
@@ -65,3 +48,24 @@ if(isset($_POST['submit'])){
         }
 
 ?>
+
+<form action="" method ="post">
+    <label>salutation :</label>
+	<input type="radio" id="mr" name="salutation" value="Mr">
+	<label for="mr">Mr</label>
+	<input type="radio" id="mrs" name="salutation" value="Mrs">
+	<label for="mrs">Mrs</label><br>
+
+    <label for = "firstname">First Name :</label>
+    <input type = "text" name = "firstname" id = "firstname"><br>
+    <label for = "lastname">Last Name :</label>
+    <input type = "text" name ="lastname" id = "lastname"><br>
+	<label for="user_name">user name : </label>
+	<input type= "text" name ="user_name" id ="user_name"><br>
+	<label for="password">password :</label>
+	<input type= "password" name ="password" id ="password">
+    <label for = "confirm_password">Confirm Password :</label>
+    <input type= "password" name ="confirm_password" id ="confirm_password"><br>
+    <button type = "submit" value ="signup" name = "submit" >Create Account</button>
+    
+</form>
