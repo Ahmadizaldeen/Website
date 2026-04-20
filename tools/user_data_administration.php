@@ -20,9 +20,12 @@ function user_exists($users_data, $user_name){
 
 function save_user($users_data, $user_data ){
     $user_name = $user_data['user_name'];
-    $password = $user_data['password'];
-    $unserialized_user[$user_name]= password_hash($password, PASSWORD_DEFAULT);
-    file_put_contents($users_data, serialize($unserialized_user));
+    $password = $user_data['password']; // kommt gehasht an
+
+    $existing = file_exists($users_data) ? unserialize(file_get_contents($users_data)) : [];
+    $existing = $user_data['password'];
+
+    file_put_contents($users_data, serialize($existing));
     echo "user saved!";
 }
 
