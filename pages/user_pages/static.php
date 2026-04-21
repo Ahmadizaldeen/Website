@@ -18,9 +18,9 @@ if (session_status() === PHP_SESSION_NONE) {
 	<header><h1>Template</h1></header>
     
 	<nav>
-		<?php require_once "../include/navigation.php"; ?>
+		<?php require_once "../../include/navigation.php"; ?>
 		<?php if(isset($_SESSION['user']) && $_SESSION['user'])
-			require_once "../include/user_tools.php"; ?>
+			require_once "../../include/user_tools.php"; ?>
 	</nav>
 
 	<main>
@@ -28,7 +28,7 @@ if (session_status() === PHP_SESSION_NONE) {
     </main>
 	
 	<footer>
-		<?php require_once "../include/footer_navi.php"; ?>
+		<?php require_once "../../include/footer_navi.php"; ?>
 	</footer>
 	
 </body>
