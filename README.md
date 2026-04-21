@@ -27,20 +27,26 @@ Die Website wird schrittweise erweitert und dient als Experimentier- und Lernpla
 │── login.php               # Einstiegspunkt – Login-Formular & Logik
 │── signup.php              # Registrierung – Formular & Logik
 │── /pages
-│   ├── home.php
+│   ├── home.php            # Startseite (Gäste & eingeloggte User)
 │   ├── page1.php – page4.php
 │   ├── about.php
 │   ├── contact.php
 │   ├── agb.php
-│   └── imprint.php
+│   ├── imprint.php
+│   └── /user_pages         # Nur für eingeloggte User (Seitenschutz aktiv)
+│       ├── setting.php
+│       ├── static.php
+│       └── signout.php
 │── /include
+│   ├── config.php          # BASE_URL Konfiguration
 │   ├── navigation.php      # Wiederverwendbare Navigation
-│   └── footer_navi.php     # Wiederverwendbarer Footer
+│   ├── footer_navi.php     # Wiederverwendbarer Footer
+│   └── user_tools.php      # Navigation für eingeloggte User
 │── /data
 │   └── users.txt           # Datei-basierte User-Speicherung (serialisiert)
 │── /tools
 │   ├── user_data_administration.php  # User CRUD-Funktionen
-│   ├── validation.php                # Regex-Validierung
+│   ├── validation.php                # Regex-Validierung & Input-Sanitizing
 │   └── pages_template.php            # Vorlage für neue Seiten
 │── /css
 │── /js
@@ -58,16 +64,16 @@ cd Website
 git checkout feat_login
 ```
 
-2. Lokalen Server starten:
+2. `include/config.php` anpassen:
 
-```bash
-php -S localhost:8000
+```php
+define('BASE_URL', '/dein-pfad/Website');
 ```
 
-3. Im Browser öffnen:
+3. Lokalen Server starten (z.B. XAMPP, Laragon):
 
 ```
-http://localhost:8000/login.php
+http://localhost/dein-pfad/Website/login.php
 ```
 
 ---
@@ -75,16 +81,21 @@ http://localhost:8000/login.php
 ## 🧪 Features
 
 * [x] Seitenstruktur mit wiederverwendbaren Includes (Navigation, Footer)
+* [x] Zentrale URL-Konfiguration mit `BASE_URL` (`config.php`)
 * [x] Benutzer-Registrierung mit Formularvalidierung
 * [x] Passwort-Bestätigung bei Registrierung
 * [x] Eingabevalidierung mit Regex (Username & Passwort)
+* [x] Input-Sanitizing gegen XSS (`clean_input`, `htmlspecialchars`)
 * [x] Sichere Passwort-Speicherung mit `password_hash()`
 * [x] Datei-basierte User-Speicherung (`serialize` / `unserialize`)
 * [x] Login mit `password_verify()`
 * [x] Session-Management nach Login
 * [x] Weiterleitung nach Login & Registrierung
-* [ ] Logout-Funktion
-* [ ] Seitenschutz für eingeloggte User
+* [x] Logout-Funktion (`session_destroy`)
+* [x] Seitenschutz für `user_pages` – nicht eingeloggte User werden weitergeleitet
+* [x] Dynamische Navigation (unterschiedlich für Gäste & eingeloggte User)
+* [x] Sticky Forms – Formulareingaben bleiben bei Fehlern erhalten
+* [x] Fehlermeldungen direkt im Formular (ohne Seitenwechsel)
 * [ ] Datenbankanbindung (MySQL)
 * [ ] MVC-Struktur
 
@@ -104,13 +115,16 @@ Bisher umgesetzte PHP-Konzepte:
 * Sessions (`session_start`, `$_SESSION`)
 * HTTP-Header und Weiterleitungen
 * Dateioperationen (`file_get_contents`, `file_put_contents`)
+* Input-Sanitizing und XSS-Schutz
+* Absolute Pfade mit `__DIR__` und `BASE_URL`
+* Seitenschutz mit Session-Prüfung
 * Debugging und Fehlerbehandlung
 
 ---
 
 ## 🚧 Status
 
-Branch `feat_login` – Login & Registrierungssystem funktionsfähig. Projekt wird kontinuierlich erweitert.
+Branch `feat_login` – vollständiges Login- & Registrierungssystem mit Seitenschutz, Logout und Fehlermeldungen. Bereit für Merge in `main`.
 
 ---
 
