@@ -2,6 +2,7 @@
 session_start(); // Data in session speichern
 require_once "tools/user_data_administration.php";
 $users_data = "data/users.txt";
+$error_message ="";
 
 if (isset($_POST['submit'])){
     $user_name = trim($_POST['user']);
@@ -15,11 +16,11 @@ if (isset($_POST['submit'])){
             exit;
         }
         else{
-            echo "Password incorrect";
+            $error_message =  "Password incorrect";
         }
     }
     else {
-    echo "User not Found!";
+    $error_message =  "User not Found!";
     }
 }
 ?>
@@ -29,6 +30,9 @@ if (isset($_POST['submit'])){
 	<input type= "text" name ="user" id ="user">
 	<label for="password">password</label>
 	<input type= "password" name ="password" id ="password">
+    <?php if ($error_message): ?>
+        <p style="color: red;"><?= $error_message ?></p>
+    <?php endif; ?>
     <button type = "submit" value ="login" name = "submit"> Login </button>
     
 </form>
