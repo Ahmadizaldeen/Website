@@ -3,7 +3,7 @@ session_start(); // Data in session speichern
 require_once "tools/user_data_administration.php";
 $users_data = "data/users.txt";
 $error_message ="";
-
+$user_name ="";//value in Form
 if (isset($_POST['submit'])){
     $user_name = trim($_POST['user']);
     $password = $_POST['password'];
@@ -27,7 +27,7 @@ if (isset($_POST['submit'])){
 
 <form action="" method ="post">
 	<label for="user">user name</label>
-	<input type= "text" name ="user" id ="user">
+	<input type= "text" name ="user" id ="user" value="<?=$user_name?>">
 	<label for="password">password</label>
 	<input type= "password" name ="password" id ="password">
     <?php if ($error_message): ?>

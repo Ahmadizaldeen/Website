@@ -4,6 +4,8 @@ $users_data = 'data/users.txt';
 require_once "tools/validation.php";
 require_once "tools/user_data_administration.php";
 $error_message ="";
+$firstname = $lastname = $user_name = $salutation = ""; // immer definiert für attribut value in Form
+
 if(isset($_POST['submit'])){
 	if(!empty($_POST['firstname'])&& !empty($_POST['lastname'])
         && !empty($_POST['user_name']) && !empty($_POST['password'])){
@@ -43,17 +45,17 @@ if(isset($_POST['submit'])){
 
 <form action="" method ="post">
     <label>salutation :</label>
-	<input type="radio" id="mr" name="salutation" value="Mr">
+	<input type="radio" id="mr" name="salutation" value="Mr" <?= $salutation === 'Mr' ? 'checked' : '' ?>>
 	<label for="mr">Mr</label>
-	<input type="radio" id="mrs" name="salutation" value="Mrs">
+	<input type="radio" id="mrs" name="salutation" value="Mrs" <?= $salutation === 'Mrs' ? 'checked' : '' ?>>
 	<label for="mrs">Mrs</label><br>
 
     <label for = "firstname">First Name :</label>
-    <input type = "text" name = "firstname" id = "firstname"><br>
+    <input type = "text" name = "firstname" id = "firstname" value="<?=$firstname?>"><br>
     <label for = "lastname">Last Name :</label>
-    <input type = "text" name ="lastname" id = "lastname"><br>
+    <input type = "text" name ="lastname" id = "lastname" value="<?=$lastname?>"><br>
 	<label for="user_name">user name : </label>
-	<input type= "text" name ="user_name" id ="user_name"><br>
+	<input type= "text" name ="user_name" id ="user_name" value="<?=$user_name?>"><br>
 	<label for="password">password :</label>
 	<input type= "password" name ="password" id ="password">
     <label for = "confirm_password">Confirm Password :</label>
