@@ -2,6 +2,11 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once __DIR__ . "/../../include/config.php";
+if (!isset($_SESSION['user'])){ // keine direktes zugriff auf user-pages ohne Login
+    header("Location: " . BASE_URL ."/login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +34,7 @@ if (session_status() === PHP_SESSION_NONE) {
     </main>
 	
 	<footer>
-		<?php require_once "../..//include/footer_navi.php"; ?>
+		<?php require_once "../../include/footer_navi.php"; ?>
 	</footer>
 	
 </body>
