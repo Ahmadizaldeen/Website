@@ -12,4 +12,11 @@ function validate_user ($user_name, $password){
         return false;
     }
 }
+
+function clean_input($data){
+    return htmlspecialchars(strip_tags(trim($data)));
+}
+function clean_password($password){
+    return htmlspecialchars(strip_tags($password));
+}
 ?>

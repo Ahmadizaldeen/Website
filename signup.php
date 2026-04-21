@@ -1,15 +1,17 @@
 <?php
 session_start(); // für automatische Anmeldung nach dem signup
 $users_data = 'data/users.txt';
+require_once "tools/validation.php";
 if(isset($_POST['submit'])){
 	if(!empty($_POST['firstname'])&& !empty($_POST['lastname'])
         && !empty($_POST['user_name']) && !empty($_POST['password'])){
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-		$user_name = trim($_POST['user_name']);
-		$password = ($_POST['password']);
-        $salutation = $_POST['salutation'] ?? null;
-        $confirm_password = $_POST['confirm_password'];
+        $firstname = clean_input($_POST['firstname']);
+        $lastname = clean_input($_POST['lastname']);
+		$user_name = clean_input($_POST['user_name']);
+		$password = clean_password($_POST['password']);//ohne trim für das Password
+        $salutation = clean_input($_POST['salutation']) ?? null;
+        $confirm_password =clean_password( $_POST['confirm_password']);
+
         if ($password != $confirm_password){
             echo 'passwords do not match';
             exit;
