@@ -14,9 +14,9 @@ if (isset($_POST['submit'])){
 
     if(user_exists($users_data,$user_name)){
         $user = get_user($users_data, $user_name);
-        $_SESSION['user_data'] = $user; // für user tools und personalisierung
         if(password_verify($password, $user['password'])){// starte session wenn gehastes password und eingegebene Passwort gleich sind
             $_SESSION['user']= $user_name;
+            $_SESSION['user_data'] = $user; // für user tools und personalisierung
             header("Location: pages/home.php");// weiterleiten wenn login erfolgreich
             exit;
         }
