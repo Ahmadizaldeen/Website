@@ -10,16 +10,6 @@ Die Website wird schrittweise erweitert und dient als Experimentier- und Lernpla
 
 ---
 
-## 🎯 Ziele des Projekts
-
-* Umsetzung von PHP-Grundlagen in realen Anwendungsfällen
-* Trennung von Logik und Darstellung (Best Practices)
-* Arbeiten mit Formularen (GET/POST, Validierung)
-* Dynamische Inhalte generieren (z. B. Tabellen, Farben, Muster)
-* Vorbereitung auf größere Projekte (z. B. MVC-Struktur)
-
----
-
 ## 🛠️ Technologien
 
 * PHP (Core)
@@ -30,23 +20,37 @@ Die Website wird schrittweise erweitert und dient als Experimentier- und Lernpla
 
 ---
 
-## 📂 Projektstruktur (aktuell)
+## 📂 Projektstruktur
 
 ```
 /Website
-│── login.php
+│── login.php               # Einstiegspunkt – Login-Formular & Logik
+│── signup.php              # Registrierung – Formular & Logik
 │── /pages
-│── /assert
+│   ├── home.php            # Startseite (Gäste & eingeloggte User)
+│   ├── page1.php – page4.php
+│   ├── about.php
+│   ├── contact.php
+│   ├── agb.php
+│   ├── imprint.php
+│   └── /user_pages         # Nur für eingeloggte User (Seitenschutz aktiv)
+│       ├── setting.php
+│       ├── static.php
+│       └── signout.php
 │── /include
+│   ├── config.php          # BASE_URL Konfiguration
+│   ├── navigation.php      # Wiederverwendbare Navigation
+│   ├── footer_navi.php     # Wiederverwendbarer Footer
+│   └── user_tools.php      # Navigation für eingeloggte User
 │── /data
+│   └── users.txt           # Datei-basierte User-Speicherung (serialisiert)
+│── /tools
+│   ├── user_data_administration.php  # User CRUD-Funktionen
+│   ├── validation.php                # Regex-Validierung & Input-Sanitizing
+│   └── pages_template.php            # Vorlage für neue Seiten
 │── /css
 │── /js
-│── /tools
-│── /test
-
 ```
-
-*(Struktur wird im Verlauf erweitert)*
 
 ---
 
@@ -54,37 +58,44 @@ Die Website wird schrittweise erweitert und dient als Experimentier- und Lernpla
 
 1. Repository klonen:
 
-```
+```bash
 git clone https://github.com/Ahmadizaldeen/Website.git
-```
-
-2. In Projektordner wechseln:
-
-```
 cd Website
+git checkout feat_login
 ```
 
-3. Lokalen Server starten (z. B. XAMPP, Laragon oder PHP built-in server):
+2. `include/config.php` anpassen:
+
+```php
+define('BASE_URL', '/dein-pfad/Website');
+```
+
+3. Lokalen Server starten (z.B. XAMPP, Laragon):
 
 ```
-php -S localhost:8000
-```
-
-4. Im Browser öffnen:
-
-```
-http://localhost:8000
+http://localhost/dein-pfad/Website/login.php
 ```
 
 ---
 
-## 🧪 Features (aktuell / geplant)
+## 🧪 Features
 
-* [ ] Dynamische Farb-Generierung
-* [ ] Tabellen mit Mustern
-* [ ] Mehrere Tabellen gleichzeitig rendern
-* [ ] Formularverarbeitung mit Validierung
-* [ ] Benutzer-Login-System (Datei-basiert)
+* [x] Seitenstruktur mit wiederverwendbaren Includes (Navigation, Footer)
+* [x] Zentrale URL-Konfiguration mit `BASE_URL` (`config.php`)
+* [x] Benutzer-Registrierung mit Formularvalidierung
+* [x] Passwort-Bestätigung bei Registrierung
+* [x] Eingabevalidierung mit Regex (Username & Passwort)
+* [x] Input-Sanitizing gegen XSS (`clean_input`, `htmlspecialchars`)
+* [x] Sichere Passwort-Speicherung mit `password_hash()`
+* [x] Datei-basierte User-Speicherung (`serialize` / `unserialize`)
+* [x] Login mit `password_verify()`
+* [x] Session-Management nach Login
+* [x] Weiterleitung nach Login & Registrierung
+* [x] Logout-Funktion (`session_destroy`)
+* [x] Seitenschutz für `user_pages` – nicht eingeloggte User werden weitergeleitet
+* [x] Dynamische Navigation (unterschiedlich für Gäste & eingeloggte User)
+* [x] Sticky Forms – Formulareingaben bleiben bei Fehlern erhalten
+* [x] Fehlermeldungen direkt im Formular (ohne Seitenwechsel)
 * [ ] Datenbankanbindung (MySQL)
 * [ ] MVC-Struktur
 
@@ -92,19 +103,28 @@ http://localhost:8000
 
 ## 📚 Lernfokus
 
-Dieses Projekt dient gezielt dazu, folgende Konzepte zu festigen:
+Bisher umgesetzte PHP-Konzepte:
 
-* Funktionen und Rückgabewerte in PHP
+* Funktionen, Parameter und Rückgabewerte
 * Arrays und Schleifen
-* Trennung von Logik und UI
-* Wiederverwendbarer Code
-* Debugging
+* Trennung von Logik und UI (PHP vor HTML)
+* Wiederverwendbarer Code mit `require_once`
+* Formulare mit GET/POST
+* Reguläre Ausdrücke (`preg_match`)
+* Passwort-Hashing und -Verifikation
+* Sessions (`session_start`, `$_SESSION`)
+* HTTP-Header und Weiterleitungen
+* Dateioperationen (`file_get_contents`, `file_put_contents`)
+* Input-Sanitizing und XSS-Schutz
+* Absolute Pfade mit `__DIR__` und `BASE_URL`
+* Seitenschutz mit Session-Prüfung
+* Debugging und Fehlerbehandlung
 
 ---
 
 ## 🚧 Status
 
-Projekt befindet sich aktuell im Aufbau und wird kontinuierlich erweitert.
+Branch `feat_login` – vollständiges Login- & Registrierungssystem mit Seitenschutz, Logout und Fehlermeldungen. Bereit für Merge in `main`.
 
 ---
 

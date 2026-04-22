@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,12 @@
 	<header><h1>Home Page</h1></header>
 
 	<nav>
+
 		<?php require_once "../include/navigation.php"; ?>
+		<?php if(isset($_SESSION['user_data']) && $_SESSION['user_data'])
+			require_once "../include/user_tools.php"; 
+		else echo "<a href = '../login.php'>Login</a>"; ?>
+		
 	</nav>
 
 	<main></main>

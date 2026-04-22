@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) { // prüft ob die Session bereits gestartet
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +19,8 @@
 
 	<nav>
 		<?php require_once "../include/navigation.php"; ?>
+		<?php if(isset($_SESSION['user_data']) && $_SESSION['user_data'])
+			require_once "../include/user_tools.php"; ?>
 	</nav>
 
 	<main></main>
