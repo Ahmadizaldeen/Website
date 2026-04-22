@@ -33,7 +33,8 @@ if(isset($_POST['submit'])){
                 'user_name' => $user_name,
                 'password' => password_hash($password, PASSWORD_DEFAULT));
                 save_user($users_data, $user_data);
-                header("Location: login.php"); // nach dem Speichern zu login
+                $_SESSION['user_data'] = $user_data;// für automatische Anmeldung nach dem signup
+                header("Location: pages/home.php"); // nach dem Speichern zu home Seite
                 exit;
             }
     }

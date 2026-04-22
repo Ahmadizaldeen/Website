@@ -24,7 +24,7 @@ if (!isset($_SESSION['user'])){ // keine direktes zugriff auf user-pages ohne Lo
 
 	<nav>
 		<?php require_once "../../include/navigation.php"; ?>
-		<?php if(isset($_SESSION['user']) && $_SESSION['user'])
+		<?php if(isset($_SESSION['user_data']) && $_SESSION['user_data'])
 			require_once "../../include/user_tools.php"; ?>
 	</nav>
 
