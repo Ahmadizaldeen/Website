@@ -6,10 +6,10 @@ require_once __DIR__."/../include/header.php";
 ?>
 
 <nav>
-	<?php require_once "../include/navigation.php"; ?>
+	<?php require_once __DIR__ . "/../include/navigation.php"; ?>
 	<?php if(isset($_SESSION['user_data']) && $_SESSION['user_data'])
 		require_once "../include/user_tools.php"; 
-	else echo "<a href = '".BASE_URL."/login.php'>Login</a>"; ?>
+	else require_once __DIR__ . "/../include/user_tools.php"; ?>
 </nav>
 
 <main></main>
