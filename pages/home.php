@@ -15,9 +15,4 @@ require_once __DIR__."/../include/header.php";
 
 <main></main>
 	
-<footer>
-	<?php require_once "../include/footer_navi.php"; ?>
-</footer>
-	
-</body>
-</html>
+<?php require_once __DIR__."/../include/footer.php";?>	
