@@ -57,4 +57,32 @@ function get_posts($blogs_file, $user_name = null){
     }
 }
 
+function show_posts($blogs_file, $user_name = null){
+    $posts = get_posts($blogs_file, $user_name);
+    $all_posts = [];
+
+    if ($user_name != null){
+        // User-Blogs: schon flach
+        $all_posts = $posts;
+    } else {
+        // Alle Blogs: 2D → flach
+        foreach ($posts as $user => $user_posts){
+            foreach ($user_posts as $post){
+                $all_posts[] = $post;
+            }
+        }
+    }
+
+    // neueste zuerst sortieren
+    usort($all_posts, function($a, $b){
+        return $b['timestamp_id'] - $a['timestamp_id'];
+    });
+
+    // anzeigen
+    foreach ($all_posts as $post){
+        echo "<h3>".$post['title']."</h3>";
+        echo "<p>".$post['inhalt']."</p>";
+        echo "<small>Autor: ".$post['autor']." | ".date("d.m.Y H:i:s", $post['timestamp_id'])."</small><hr>";
+    }
+}
 ?>
