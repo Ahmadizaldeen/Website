@@ -19,12 +19,27 @@ if(isset($_POST['save'])){
             'inhalt' => $inhalt,
             'timestamp_id' => time()
         );
-        save_blog($blogs_file, $blog_data);
+        save_post($blogs_file, $blog_data);
         header("Location: ".BASE_URL."/pages/home.php");
         exit;
         }
         else {
             $error_message = "please fill in all fields";
         }
+}
+?>
+<?php
+function save_post($blogs_file, $blog_data ){
+    $user_name = $blog_data['user_name'];
+    $posts =[];
+    if (file_exists($blogs_file)){
+        $data = file_get_contents($blogs_file);
+        $posts = unserialize($data);
+    }
+    if(!isset(($posts[$user_name]))){
+        $posts[$user_name] = [];
+    }
+    $posts[$user_name][] = $blog_data;
+    file_put_contents($blogs_file,serialize($posts));   
 }
 ?>
