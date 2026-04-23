@@ -42,4 +42,19 @@ function save_post($blogs_file, $blog_data ){
     $posts[$user_name][] = $blog_data;
     file_put_contents($blogs_file,serialize($posts));   
 }
+
+function get_posts($blogs_file, $user_name = null){
+    if (file_exists($blogs_file)){
+        $data = file_get_contents($blogs_file);
+        $posts = unserialize($data) ?:[]; //data kann leer sein
+        if ($user_name == null){
+            return $posts;
+        }
+        else{
+            return $posts[$user_name] ?? [];
+        } 
+        
+    }
+}
+
 ?>
