@@ -1,4 +1,4 @@
-
+<?php require_once "blog_functions.php";?>
 <form action="" method ="post">
 	<label for="user">title :</label>
 	<input type= "text" name ="title" id ="title" ><br><br>
