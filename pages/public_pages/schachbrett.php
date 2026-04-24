@@ -1,16 +1,4 @@
 
-<html>
-<head>
-    <style>
-        td {
-            width: 75px;
-            height: 75px;
-            border: 1px solid black;
-        }
-    </style>
-</head>
-<body>
-
 <table>
 
 <?php
@@ -26,7 +14,7 @@ for ($row = 0; $row < 8; $row++) {
             $color = "black";
         }
 
-        echo "<td style='background-color:$color'></td>";
+        echo "<td style='width: 75px;height: 75px;border: 1px solid black;background-color:$color'></td>";
     }
 
     echo "</tr>";
@@ -34,6 +22,3 @@ for ($row = 0; $row < 8; $row++) {
 ?>
 
 </table>
-
-</body>
-</html>

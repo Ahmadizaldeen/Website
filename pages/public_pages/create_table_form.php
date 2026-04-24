@@ -9,7 +9,6 @@ require_once __DIR__."/../../tools/funktionen.php";
 	<input type = "submit" value ="senden" name = "submit">
 </form>
 <?php
-	print_r ($_GET);
 	
 	//echo mk_table(5, 5);
 	if (isset($_GET['submit'])){

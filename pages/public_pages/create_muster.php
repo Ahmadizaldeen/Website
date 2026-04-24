@@ -1,6 +1,4 @@
 <?php
-
-
 function create_rgb_color($muster = "one_color"){
 	
 		return "rgb(" . rand(0,255) . "," . rand(0,255) . "," . rand(0,255) . ")";
