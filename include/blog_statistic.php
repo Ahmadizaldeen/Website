@@ -1,5 +1,6 @@
 
 <?php
+require_once __DIR__ . "/../include/blog_functions.php";
 $blogs_file = __DIR__ . "/../data/blogs.txt";
 function get_user_count($blogs_file, $user_name= null){ 
     if ($user_name == null){
