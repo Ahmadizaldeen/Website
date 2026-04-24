@@ -6,7 +6,7 @@ require_once __DIR__."/../include/config.php";
 
 <?php # form-Data handling function 
 $autor = $_SESSION['user_data']['firstname'] . " " . $_SESSION['user_data']['lastname'];
-$blogs_file = "../data/blogs.txt";
+$blogs_file = __DIR__ . "/../data/blogs.txt";
 
 if(isset($_POST['save'])){
 	if(!empty($_POST['title'])&& !empty($_POST['inhalt'])){
