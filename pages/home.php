@@ -13,6 +13,16 @@ require_once __DIR__."/../include/header.php";
 		
 </nav>
 
-<main></main>
+<main>
+	<h2>Willkommen auf meinem Blog</h2>
+	<hr>
+	<h3>News :</h3>
+	<?php require_once __DIR__."/../include/blog_functions.php";
+	$blogs_file = "../data/blogs.txt";
+	?>
+	<div border="1" style="border-collapse: collapse; width: 75%; text-align: left;">
+		<?=show_posts($blogs_file);?>
+	</div>
+</main>
 	
 <?php require_once __DIR__."/../include/footer.php";?>	
