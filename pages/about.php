@@ -13,38 +13,30 @@ require_once __DIR__."/../include/header.php";
 </nav>
 
 <main>
-<p> Über Uns
+<section>
+  <h1>Über Uns</h1>
 
-Willkommen auf dieser legendären Übungswebseite — dem digitalen Ort, an dem Kaffee in Code umgewandelt wird und Bugs manchmal als „Features“ weiterleben.
+  <p>
+    Willkommen auf dieser Übungswebseite – einem Ort, an dem Code wächst, Fehler leben und manchmal alles überraschend funktioniert.
+  </p>
 
-Diese Seite wurde mit viel Geduld, einigen fragwürdigen Entscheidungen um 2 Uhr nachts und einer gesunden Portion „Warum funktioniert das jetzt nicht?“ erstellt.
+  <p>
+    Diese Seite dient ausschließlich Lernzwecken und wurde entwickelt, um Webentwicklung praktisch zu verstehen.
+    HTML, CSS, JavaScript und PHP treffen hier regelmäßig aufeinander – manchmal friedlich, manchmal eher nicht.
+  </p>
 
-Hier wird gelernt, getestet, verbessert und gelegentlich auch leicht verzweifelt. HTML, PHP, CSS haben bereits einige hitzige Diskussionen erlebt — meistens hat am Ende der fehlende Semikolon gewonnen.
+  <h2>Unser Ziel</h2>
 
-Unser Ziel ist einfach:
+  <ul>
+    <li>Saubere Webentwicklung lernen</li>
+    <li>Strukturierte Projekte aufbauen</li>
+    <li>Fehler verstehen statt ignorieren</li>
+  </ul>
 
-Eine funktionierende, saubere und vielleicht sogar schöne Webseite zu bauen.
-
-Unsere Nebenaufgaben:
-
-Debugging betreiben wie ein Detektiv
-Stack Overflow heimlich als zweiten Lehrer nutzen
-Fehler beheben, die gestern noch nicht da waren
-So tun, als wäre alles von Anfang an geplant gewesen
-
-Falls hier also mal etwas komisch aussieht:
-Das ist entweder ein geheimer Prototyp…
-oder ich habe wieder div in div in div gebaut.
-
-Trotzdem gilt:
-
-Jeder große Entwickler hat klein angefangen.
-
-Und genau hier passiert das.
-
-Danke fürs Vorbeischauen — und bitte nicht zu tief in den Quellcode schauen.
-Manche Dinge sind besser ungelöst.
-</p>
+  <p>
+    Wenn etwas hier nicht perfekt aussieht, ist das kein Fehler – sondern Teil des Lernprozesses.
+  </p>
+</section>
 </main>
 	
 <?php require_once __DIR__."/../include/footer.php";?>	
