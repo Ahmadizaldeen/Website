@@ -1,0 +1,38 @@
+* {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	}
+	
+	 nav a{display:inline-block;text-decoration:none;color:darkblue;margin-right:5px;border: 1px solid black; padding: 3px;}
+	/* Make body a flex container with min viewport height */
+	body {
+	  min-height: 100vh;
+	  display: flex;
+	  flex-direction: column;
+	  /* Optional: Add background or font styles */
+	  font-family: Arial, sans-serif;
+	  line-height: 1.6;
+	}
+	 
+	/* Push footer down by growing main content */
+	main {
+	  flex: 1;
+	  /* Optional: Add padding for spacing */
+	  padding: 2rem;
+	}
+	
+	/* Style header and footer (optional) */
+	header {
+	  background: #333;
+	  color: white;
+	  padding: 1rem;
+	}
+	 
+	footer {
+	  background: #333;
+	  color: white;
+	  padding: 1rem;
+	  text-align: center;
+	}
+	footer nav a{display:inline-block;text-decoration:none;color:white;}
