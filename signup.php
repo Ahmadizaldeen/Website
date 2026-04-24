@@ -13,6 +13,9 @@ require_once "tools/user_data_administration.php";
 <?php
 require_once __DIR__."/include/navigation.php";
 ?>
+<?php if(isset($_SESSION['user_data']) && $_SESSION['user_data'])
+		require_once "../include/user_tools.php"; 
+	else echo "<a href = '".BASE_URL."/login.php'>Login</a>"; ?>
 </nav>
 <?php
 $error_message ="";
