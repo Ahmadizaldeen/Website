@@ -12,7 +12,8 @@ require_once __DIR__."/../../include/header.php";
 	</nav>
 
 	<main>
-        in Entwicklung ...
+        <?php require_once __DIR__."/../../include/blog_form.php";
+			  require_once __DIR__."/../../include/blog_functions.php";?>
     </main>
 	
 <?php require_once __DIR__."/../../include/footer.php";?>	
