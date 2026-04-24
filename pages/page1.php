@@ -12,6 +12,9 @@ require_once __DIR__."/../include/header.php";
 	else echo "<a href = '".BASE_URL."/login.php'>Login</a>"; ?>
 </nav>
 
-<main></main>
+<main>
+	<h3>diese Seite erstellet Tabllen mit random gefärbten Muster </h3>
+	<?php require_once __DIR__."/public_pages/create_muster.php";?>
+</main>
 	
 <?php require_once __DIR__."/../include/footer.php";?>	

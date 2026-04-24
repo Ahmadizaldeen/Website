@@ -12,6 +12,9 @@ require_once __DIR__."/../include/header.php";
 	else echo "<a href = '".BASE_URL."/login.php'>Login</a>"; ?>
 </nav>
 
-<main></main>
+<main>
+	<h3>Lass mal Schach spielen</h3>
+	<?php require_once __DIR__."/public_pages/schachbrett.php";?>
+</main>
 	
 <?php require_once __DIR__."/../include/footer.php";?>	

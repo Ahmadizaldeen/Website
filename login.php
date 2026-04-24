@@ -2,9 +2,22 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-?>
-<?php 
+
+require_once __DIR__."/include/config.php";
+require_once __DIR__."/include/if_session.php";
+require_once __DIR__."/include/head.php";
+require_once __DIR__."/include/header.php";
+
+
 require_once "tools/user_data_administration.php";
+?>
+<nav>
+<?php
+require_once __DIR__."/include/navigation.php";
+?>
+</nav>
+<main>
+<?php
 $users_data = "data/users.txt";
 $error_message ="";
 $user_name ="";//value in Form
@@ -42,4 +55,5 @@ if (isset($_POST['submit'])){
     
 </form>
 <span > Don't have an account? <a href = "signup.php">Sign up</a></span>
-
+</main>
+<?php require_once __DIR__."/include/footer.php";?>	
