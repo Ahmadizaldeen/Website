@@ -1,5 +1,5 @@
 <?php
-require_once "funktionen.php";
+require_once __DIR__."/../../tools/funktionen.php";
 ?>
 <form action= "" method ="get">
 	<label for="rows">rows</label>

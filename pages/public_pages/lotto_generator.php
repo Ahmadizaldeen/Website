@@ -1,4 +1,4 @@
-<?php require_once "funktionen.php";?>
+<?php require_once __DIR__."/../../tools/funktionen.php";?>
 <form action ="" method = "post">
 <label for ="anzahl">wie viele Tipps?</label>
 <input type = "text" name = "anzahl"/>
