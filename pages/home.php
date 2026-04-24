@@ -18,7 +18,7 @@ require_once __DIR__."/../include/header.php";
 	<hr>
 	<h3>News :</h3>
 	<?php require_once __DIR__."/../include/blog_functions.php";
-	$blogs_file = "../data/blogs.txt";
+	$blogs_file = __DIR__."/../data/blogs.txt";
 	?>
 	<div border="1" style="border-collapse: collapse; width: 75%; text-align: left;">
 		<?=show_posts($blogs_file);?>
