@@ -14,6 +14,6 @@ require_once __DIR__."/include/header.php";
 </nav>
 
 <main>
-    <?php require_once __DIR__."/login.php";?>
+    <?php require_once __DIR__."/pages/home.php";?>
 </main>
 <?php require_once __DIR__."/include/footer.php";?>	
