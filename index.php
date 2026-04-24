@@ -14,6 +14,10 @@ require_once __DIR__."/include/header.php";
 </nav>
 
 <main>
-    <?php require_once __DIR__."/pages/home.php";?>
+    <?php 
+    require_once __DIR__ . "/include/blog_functions.php";
+    $blogs_file = __DIR__ . "/data/blogs.txt";
+    echo show_posts($blogs_file);
+    ?>
 </main>
 <?php require_once __DIR__."/include/footer.php";?>	
