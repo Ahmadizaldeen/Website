@@ -3,6 +3,7 @@ require_once __DIR__."/../../include/config.php";
 require_once __DIR__."/../../include/if_session.php";
 require_once __DIR__."/../../include/head.php";
 require_once __DIR__."/../../include/header.php";
+require_once __DIR__."/../../include/blog_statistic.php";
 ?>
     
 	<nav>
@@ -12,7 +13,11 @@ require_once __DIR__."/../../include/header.php";
 	</nav>
 
 	<main>
-        in Entwicklung ...
+        <h3>Anzahl der Users :</h3>
+		<?php echo get_user_count($blogs_file); ?>
+		<h3>Anzahl aller Posts  :</h3>
+		<?php echo get_posts_count($blogs_file); ?>
+		<br>
     </main>
 	
 <?php require_once __DIR__."/../../include/footer.php";?>	
