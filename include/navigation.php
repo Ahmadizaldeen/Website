@@ -5,5 +5,6 @@
 <a href = "<?= BASE_URL ?>/pages/page2.php">Chess</a>
 <a href = "<?= BASE_URL ?>/pages/page3.php">Dynamic Tables</a>
 <a href = "<?= BASE_URL ?>/pages/page4.php">Lotto</a>
+<?php if (!isset($_SESSION['user'])): ?>
 <a href = "<?= BASE_URL ?>/signup.php">Sign up</a>
-<hr>
+<?php endif; ?>
