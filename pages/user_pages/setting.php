@@ -12,8 +12,18 @@ require_once __DIR__."/../../include/header.php";
 </nav>
 
 <main>
-        in Entwicklung ...<br>
-        password ändern, account löschen, ...
+    <h2>Einstellungen</h2>
+    <h3>Profil</h3>
+    <p>
+        Name: <?= $_SESSION['user_data']['firstname'] . " " . $_SESSION['user_data']['lastname'] ?><br>
+        Username: <?= $_SESSION['user_data']['user_name'] ?>
+    </p>
+	
+    <hr>
+
+    <h3>Theme Farbe</h3>
+    <input type="color" id="theme-color">
+    <button onclick="resetColor()">Zurücksetzen</button>
 </main>
 	
 <?php require_once __DIR__."/../../include/footer.php";?>	
