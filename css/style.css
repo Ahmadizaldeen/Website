@@ -124,3 +124,38 @@ footer a {
   transition: color var(--transition);
 }
 footer a:hover { color: var(--accent); border-bottom: none; }
+
+/* ── Blog Posts ── */
+ article {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 1.8rem 2rem;
+  margin-bottom: 1.5rem;
+  background: var(--white);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+article:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+article h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  color: var(--black);
+}
+article p {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+}
+
+article small {
+  display: block;
+  margin-top: 1rem;
+  color: var(--gray-400);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  border-top: 1px solid var(--gray-100);
+  padding-top: 0.8rem;
+}
