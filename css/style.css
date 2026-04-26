@@ -224,3 +224,27 @@ button:hover, input[type="submit"]:hover {
   transform: translateY(-1px);
   color: var(--accent);
 }
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+th {
+  background: var(--black);
+  color: var(--white);
+  padding: 0.7rem 1rem;
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-600);
+}
+tr:hover td { background: var(--gray-100); }
