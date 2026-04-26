@@ -159,3 +159,46 @@ article small {
   border-top: 1px solid var(--gray-100);
   padding-top: 0.8rem;
 }
+
+/* ── Forms ── */
+form {
+  background: var(--gray-100);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-400);
+  max-width: 520px;
+}
+label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  margin-bottom: 0.4rem;
+  margin-top: 0.5rem;
+}
+label:first-child { margin-top: 0; }
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+
+textarea,
+select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--gray-400);
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  background: var(--white);
+  color: var(--black);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--black);
+  box-shadow: 0 0 0 3px rgba(15,15,15,0.08);
+}
+

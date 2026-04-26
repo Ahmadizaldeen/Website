@@ -61,11 +61,11 @@ if(isset($_POST['submit'])){
 <main>
 <form action="" method ="post">
     <label>salutation :</label>
-	<input type="radio" id="mr" name="salutation" value="Mr" <?= $salutation === 'Mr' ? 'checked' : '' ?>>
-	<label for="mr">Mr</label>
-	<input type="radio" id="mrs" name="salutation" value="Mrs" <?= $salutation === 'Mrs' ? 'checked' : '' ?>>
-	<label for="mrs">Mrs</label><br>
-
+    <select name="salutation">
+        <option value="">Select</option>
+        <option value="Mr" <?= $salutation === 'Mr' ? 'selected' : '' ?>>Mr</option>
+        <option value="Mrs" <?= $salutation === 'Mrs' ? 'selected' : '' ?>>Mrs</option>
+    </select>
     <label for = "firstname">First Name :</label>
     <input type = "text" name = "firstname" id = "firstname" value="<?=$firstname?>"><br>
     <label for = "lastname">Last Name :</label>
