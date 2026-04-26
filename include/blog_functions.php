@@ -55,9 +55,11 @@ function show_posts($blogs_file, $user_name = null){
 
     // anzeigen
     foreach ($all_posts as $post){
+        echo "<article>";
         echo "<h3>".$post['title']."</h3>";
         echo "<p>".$post['inhalt']."</p>";
         echo "<small>Autor: ".$post['autor']." | ".date("d.m.Y H:i:s", $post['timestamp_id'])."</small><hr>";
+        echo "</article>";
     }
 }
 ?>
