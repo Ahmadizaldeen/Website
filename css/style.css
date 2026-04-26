@@ -64,3 +64,39 @@ header h1 {
   margin: 0 auto;
 }
 
+nav{
+  background: var(--gray-800);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+nav a {
+  color: var(--gray-200);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1rem 1.1rem;
+  border-bottom: 3px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+nav a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+nav span {
+  color: var(--gray-400);
+  font-size: 0.82rem;
+  padding: 1rem 1.1rem;
+  margin-left: auto;
+  font-style: italic;
+}
