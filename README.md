@@ -13,6 +13,7 @@ Benutzer können sich registrieren, einloggen und Blogbeiträge veröffentlichen
 * PHP (Core)
 * HTML5
 * CSS3
+* JavaScript
 * Git & GitHub
 
 ---
@@ -42,14 +43,14 @@ Benutzer können sich registrieren, einloggen und Blogbeiträge veröffentlichen
 │   └── /user_pages             # Backend – nur für eingeloggte User
 │       ├── create_post.php     # Neuen Blogbeitrag erstellen
 │       ├── statistic.php       # Statistiken (User & Beiträge)
-│       ├── setting.php         # User-Einstellungen
+│       ├── setting.php         # User-Einstellungen & Theme-Farbe
 │       └── signout.php         # Logout
 │
 │── /include
-│   ├── config.php              # BASE_URL Konfiguration
+│   ├── config.php              # Dynamische BASE_URL Konfiguration
 │   ├── head.php                # HTML head-Tag & CSS
 │   ├── header.php              # Seitentitel & h1
-│   ├── footer.php              # Footer
+│   ├── footer.php              # Footer & JS
 │   ├── navigation.php          # Hauptnavigation
 │   ├── footer_navi.php         # Footer-Navigation
 │   ├── user_tools.php          # Navigation für eingeloggte User
@@ -64,12 +65,14 @@ Benutzer können sich registrieren, einloggen und Blogbeiträge veröffentlichen
 │   ├── funktionen.php                # Allgemeine Hilfsfunktionen
 │   └── get_filename_as_title.php     # Dynamischer Seitentitel
 │
+│── /css
+│   └── style.css               # Professional Clean Design
+│── /js
+│   └── script.js               # Theme-Farbe & UI Logik
+│
 │── /data
 │   ├── users.txt               # User-Speicherung (serialisiert)
 │   └── blogs.txt               # Blog-Speicherung (serialisiert)
-│
-│── /css
-└── /js
 ```
 
 ---
@@ -83,13 +86,7 @@ git clone https://github.com/Ahmadizaldeen/Website.git
 cd Website
 ```
 
-2. `include/config.php` anpassen:
-
-```php
-define('BASE_URL', '/dein-pfad/Website');
-```
-
-3. Lokalen Server starten (z.B. XAMPP, Laragon):
+2. Lokalen Server starten (z.B. XAMPP, Laragon) – `config.php` erkennt den Pfad automatisch:
 
 ```
 http://localhost/dein-pfad/Website/index.php
@@ -116,11 +113,19 @@ http://localhost/dein-pfad/Website/index.php
 * [x] Post-Redirect-Get – kein doppeltes Speichern
 * [x] Datei-basierte Speicherung (`serialize` / `unserialize`)
 
+### Design & UI
+* [x] Professional Clean Design – Schwarz/Grau mit dynamischer Akzentfarbe
+* [x] CSS Custom Properties (Variablen) für konsistentes Design
+* [x] System-Fonts – DSGVO-konform, keine Google Fonts
+* [x] Sticky Navigation mit hover-Effekten
+* [x] Responsive Layout mit `clamp()` für Schriftgrößen
+* [x] Dynamische Akzentfarbe in Setting wählbar – wird in `localStorage` gespeichert
+
 ### Sicherheit & Struktur
 * [x] Seitenschutz für `user_pages` – Weiterleitung ohne Session
 * [x] Dynamische Navigation (Gäste & eingeloggte User)
 * [x] Input-Sanitizing gegen XSS (`clean_input`, `htmlspecialchars`)
-* [x] Zentrale URL-Konfiguration mit `BASE_URL`
+* [x] Dynamische `BASE_URL` – automatisch berechnet, kein Hardcoding
 * [x] Template-System mit wiederverwendbaren Includes
 
 ### Frontend – Public Pages
@@ -132,12 +137,13 @@ http://localhost/dein-pfad/Website/index.php
 ### Backend – User Pages
 * [x] Blogbeitrag erstellen
 * [x] Statistik-Seite (Anzahl User & Beiträge)
-* [x] User-Einstellungen
+* [x] User-Einstellungen mit Theme-Farbe
 
 ---
 
-## 📚 Umgesetzte PHP-Konzepte
+## 📚 Umgesetzte Konzepte
 
+### PHP
 * Funktionen, Parameter und Rückgabewerte
 * Arrays, Schleifen und `switch`
 * Trennung von Logik und UI (PHP vor HTML)
@@ -150,16 +156,28 @@ http://localhost/dein-pfad/Website/index.php
 * Dateioperationen (`file_get_contents`, `file_put_contents`)
 * Serialisierung (`serialize` / `unserialize`)
 * Input-Sanitizing und XSS-Schutz
-* Absolute Pfade mit `__DIR__` und `BASE_URL`
+* Absolute Pfade mit `__DIR__` und dynamischer `BASE_URL`
 * Seitenschutz mit Session-Prüfung
 * Anonyme Funktionen (`usort`)
 * Dynamischer Seitentitel mit `$_SERVER['SCRIPT_NAME']`
+
+### JavaScript
+* DOM-Manipulation (`getElementById`, `style.setProperty`)
+* Event Listener (`input`, `DOMContentLoaded`)
+* `localStorage` – persistente Datenspeicherung im Browser
+* CSS Custom Properties dynamisch setzen
 
 ---
 
 ## 🚧 Status
 
-Projekt abgeschlossen. CSS-Finalisierung ausstehend. Bereit für Abgabe am 24.04.2026.
+Projekt abgeschlossen und abgegeben (24.04.2026). Wird als persönliches Open-Source Projekt weiterentwickelt.
+
+**Geplante nächste Schritte:**
+- MySQL Datenbankanbindung (PDO) statt Textdateien
+- Blog-Beiträge bearbeiten & löschen
+- Kommentar-System
+- Laravel Migration
 
 ---
 
@@ -171,4 +189,4 @@ Ahmad Izaldeen
 
 ## 📄 Lizenz
 
-Dieses Projekt dient Lernzwecken.
+Open Source – frei verwendbar.
