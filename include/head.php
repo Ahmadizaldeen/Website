@@ -11,5 +11,4 @@ require_once __DIR__ . "/config.php";
 	<title><?=$title?></title>
 	<link rel = "stylesheet" href = "<?= BASE_URL ?>/css/style.css">
 	<style></style>
-	<script src = "<?= BASE_URL ?>/js/script.js"></script>
 </head>
