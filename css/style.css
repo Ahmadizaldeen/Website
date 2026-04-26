@@ -18,5 +18,14 @@
 /* Global Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-
+body {
+  font-family: var(--font-sans);
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
